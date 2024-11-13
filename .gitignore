@@ -1,3 +1,4 @@
+node_modules
 # Logs
 logs
 *.log
@@ -8,7 +9,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 vite-project
-node_modules
 dist
 dist-ssr
 *.local

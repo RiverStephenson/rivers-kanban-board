@@ -9,16 +9,17 @@ const login = async (userInfo: UserLogin) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(userInfo)
-   });
+  });
+  
    console.log(response)
 
-  //  const data = await response.json();
+   const data = await response.json();
   //  console.log(data)
    if (!response.ok) {
     const errorData = await response.json();
     throw new Error(`Error: ${errorData.message}`);
    }
-return response;
+return data;
   } catch (err) {
     console.log('Error with user login: ', err);
     return Promise.reject('Could not fetch user info');

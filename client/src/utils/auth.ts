@@ -1,4 +1,7 @@
-import { JwtPayload, jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
+// JwtPayload
+
+
 
 class AuthService {
   getProfile() {
@@ -16,7 +19,13 @@ class AuthService {
   
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
+    // const tokenExp: React.FC<JwtPayload> = () => {
+      // const deToken = this.getToken();
+      const decodedToken = jwtDecode(token);
+      return decodedToken.exp
+    // }
    
+    
   }
 
   getToken(): string {
@@ -27,6 +36,7 @@ class AuthService {
 
   login(idToken: string) {
     // TODO: set the token to localStorage
+
     localStorage.setItem('id_token', idToken);
     // TODO: redirect to the home page
     window.location.assign('/');
